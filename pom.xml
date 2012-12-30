@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.zenlambda.maven</groupId>
 	<artifactId>un7z-maven-plugin</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<packaging>maven-plugin</packaging>
 
 	<properties>
@@ -51,5 +51,25 @@
 		</plugins>
 
 	</build>
-	
+	<profiles>
+		<profile>
+			<id>localDeploy</id>
+		<activation>
+		  <property>
+		  	<!-- relative path to local repository (in this case a git staging repo) -->
+		    <name>localDeployRepo</name>
+		  </property>
+		</activation>
+			<distributionManagement>
+			<repository>
+				<id>repo</id>
+				<url>file:${localDeployRepo}/releases</url>
+			</repository>
+			<snapshotRepository>
+				<id>snapshot-repo</id>
+				<url>file:${localDeployRepo}/snapshots</url>
+			</snapshotRepository>
+		</distributionManagement>
+		</profile>
+	</profiles>
 </project>
