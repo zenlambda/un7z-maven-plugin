@@ -6,6 +6,14 @@ This maven plugin extracts archives using the 7z library.
 Example Usage
 -------------
 
+	<repositories>
+	    <repository>
+		<id>zenlambda-releases</id>
+		<url>http://mvn-repo.zenlambda.com/releases</url>
+	    </repository>
+	</repositories>
+
+
 	<build>
 		<plugins>
 			...
@@ -13,7 +21,7 @@ Example Usage
 				<plugin>
 					<groupId>com.zenlambda.maven</groupId>
 					<artifactId>un7z-maven-plugin</artifactId>
-					<version>0.0.1-SNAPSHOT</version>
+					<version>0.0.1</version>
 					<inherited>false</inherited>
 					<executions>
 						<execution>
